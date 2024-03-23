@@ -12,10 +12,11 @@ processor.run(new TypeormDatabase({ supportHotBlocks: false }), async (ctx) => {
     const transfers: Transfer[] = []
 
     for (let block of ctx.blocks) {
+        console.log(`Processing block ${block.header.height}`);
         for (let trc of block.traces) {
             if (trc.type === 'create' && trc.result?.code && isErc721(trc.result.code)) {
                 if (!trc.transaction) {
-                    ctx.log.fatal(`ERROR: trace came without a parent transaction`)
+                    ctx.log.fatal(`ERROR`)
                     console.log(trc)
                     process.exit(1)
                 }

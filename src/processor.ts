@@ -1,4 +1,4 @@
-import {lookupArchive} from '@subsquid/archive-registry'
+import { lookupArchive } from '@subsquid/archive-registry'
 import {
     BlockHeader,
     DataHandlerContext,
@@ -22,7 +22,7 @@ export const processor = new EvmBatchProcessor()
     })
     .setFields({
         trace: {
-            createResultCode: true, // for checking ERC721 compliance
+            createResultCode: true,
             createResultAddress: true,
         },
     })
