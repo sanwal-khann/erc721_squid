@@ -3,7 +3,7 @@ type Contract @entity {
   deploymentHeight: Int! @index
   deploymentTxn: String! @index
   address: String! @index
-  isAErc721Duck: Boolean!
+  isAErc721: Boolean!
 	transfers: [Transfer!] @derivedFrom(field: "contract")
 }
 
